@@ -43,3 +43,21 @@ def permute(value, table, in_bits):
     for pos in table:
         out = (out << 1) | ((value >> (in_bits - pos)) & 1)
     return out
+
+def rol28(x, n):
+    return ((x << n) | (x >> (28 - n))) & 0xFFFFFFF
+
+
+def des_subkeys(key, log=None):
+    k56 = permute(key, PC1, 64)
+    c, d = k56 >> 28
+    if log:
+        log(f"  PC-1 (56 bit)  = {k56:014X}")
+    keys = []
+    for i, s in enumerate(SHIFTS, 1):
+        c, d = rol28(c, s), rol28(d, s)
+        k = permute((c << 28) | d, PC2, 56)
+        keys.append(k)
+        if log:
+            log(f"  Vong {i:2d}: C{i}={c:07X} D{i}={d:07X}  )
+    return keys
