@@ -66,7 +66,7 @@ def des_subkeys(key, log=None):
 def sbox_layer(x48):
     out = 0
     for i in range(8):
-        
+        six = (x48 >> (42 - 6 * i)) & 0x3F
         row = ((six >> 4) & 2) | (six & 1)
         col = (six >> 1) & 0xF
         out = (out << 4) | SBOX[i][row][col]
@@ -75,6 +75,7 @@ def sbox_layer(x48):
 
 def des_crypt(block, key, decrypt=False, log=None):
     log = log or (lambda s: None)
+    log("[DES] Sinh khoa con:")
     ks = des_subkeys(key, log)
     if decrypt:
         ks = ks[::-1]
@@ -90,6 +91,9 @@ def des_crypt(block, key, decrypt=False, log=None):
         nl, nr = r, l ^ f
         log(f"--- Vong {i+1} ---")
         log(f"  E(R{i})        = {er:012X}")
+        log(f"  K{i+1}          = {ks[i]:012X}")
+        log(f"  E(R)^K       = {x:012X}")
+        log(f"  Sau S-box    = {s:08X}")
         log(f"  P(S) = f     = {f:08X}")
         log(f"  L{i+1} = {nl:08X}   R{i+1} = {nr:08X}")
         l, r = nl, nr
