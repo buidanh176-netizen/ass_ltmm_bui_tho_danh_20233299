@@ -102,3 +102,21 @@ def des_crypt(block, key, decrypt=False, log=None):
     out = permute(pre, FP, 64)
     log(f"[DES] Sau FP (dau ra)     = {out:016X}")
     return out
+P_DES, K_DES = 0x0000000000000011, 0x0000000000000000
+
+
+def run_test_vector(out=print):
+    out("=" * 70)
+    out("DES - TEST VECTOR CUA BAI TAP")
+    out("   P = 0x0000000000000011      K = 0x0000000000000000")
+    out("=" * 70)
+    ct = des_crypt(P_DES, K_DES, log=out)
+    out(f"\n>>> DES CIPHERTEXT = 0x{ct:016X}")
+    out("\n--- Giai ma kiem tra ---")
+    pt = des_crypt(ct, K_DES, decrypt=True, log=out)
+    out(f">>> DES PLAINTEXT sau giai ma = 0x{pt:016X} "
+        f"{'(khop)' if pt == P_DES else '(SAI)'}")
+
+
+if __name__ == "__main__":
+    run_test_vector()
