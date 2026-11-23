@@ -61,3 +61,40 @@ def des_subkeys(key, log=None):
         if log:
             log(f"  Vong {i:2d}: C{i}={c:07X} D{i}={d:07X}, K{i}={k:012X}")
     return keys
+
+
+def sbox_layer(x48):
+    out = 0
+    for i in range(8):
+        
+        row = ((six >> 4) & 2) | (six & 1)
+        col = (six >> 1) & 0xF
+        out = (out << 4) | SBOX[i][row][col]
+    return out
+
+
+def des_crypt(block, key, decrypt=False, log=None):
+    log = log or (lambda s: None)
+    ks = des_subkeys(key, log)
+    if decrypt:
+        ks = ks[::-1]
+    ip = permute(block, IP, 64)
+    l, r = ip >> 32, ip & 0xFFFFFFFF
+    log(f"[DES] Sau IP        = {ip:016X}")
+    log(f"[DES] L0 = {l:08X}   R0 = {r:08X}")
+    for i in range(16):
+        er = permute(r, E, 32)
+        x = er ^ ks[i]
+        s = sbox_layer(x)
+        f = permute(s, P, 32)
+        nl, nr = r, l ^ f
+        log(f"--- Vong {i+1} ---")
+        log(f"  E(R{i})        = {er:012X}")
+        log(f"  P(S) = f     = {f:08X}")
+        log(f"  L{i+1} = {nl:08X}   R{i+1} = {nr:08X}")
+        l, r = nl, nr
+    pre = (r << 32) | l  # hoan doi 32 bit cuoi
+    log(f"[DES] R16||L16 (truoc FP) = {pre:016X}")
+    out = permute(pre, FP, 64)
+    log(f"[DES] Sau FP (dau ra)     = {out:016X}")
+    return out
