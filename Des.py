@@ -50,7 +50,7 @@ def rol28(x, n):
 
 def des_subkeys(key, log=None):
     k56 = permute(key, PC1, 64)
-    c, d = k56 >> 28
+    c, d = k56 >> 28, k56 & 0xFFFFFFF
     if log:
         log(f"  PC-1 (56 bit)  = {k56:014X}")
     keys = []
@@ -59,5 +59,5 @@ def des_subkeys(key, log=None):
         k = permute((c << 28) | d, PC2, 56)
         keys.append(k)
         if log:
-            log(f"  Vong {i:2d}: C{i}={c:07X} D{i}={d:07X}  )
+            log(f"  Vong {i:2d}: C{i}={c:07X} D{i}={d:07X}, K{i}={k:012X}")
     return keys
