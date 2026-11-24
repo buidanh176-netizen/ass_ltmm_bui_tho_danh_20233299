@@ -30,3 +30,22 @@ INV_SB = [0] * 256
 for _i, _v in enumerate(SB):
     INV_SB[_v] = _i
 RCON = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1B, 0x36]
+
+def hx(bs):
+    return "".join(f"{b:02x}" for b in bs)
+
+
+def aes_key_expansion(key16, log=None):
+    w = [list(key16[4 * i:4 * i + 4]) for i in range(4)]
+    for i in range(4, 44):
+        t = w[i - 1][:]
+        if i % 4 == 0:
+            t = t[1:] + t[:1]
+            t = [SB[b] for b in t]
+            t[0] ^= RCON[i // 4 - 1]
+        w.append([w[i - 4][j] ^ t[j] for j in range(4)])
+    rks = [sum(w[4 * r:4 * r + 4], []) for r in range(11)]
+    if log:
+        for r, rk in enumerate(rks):
+            log(f"  RoundKey[{r:2d}] = {hx(rk)}")
+    return rks
