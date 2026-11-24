@@ -22,3 +22,119 @@ DES - TEST VECTOR CUA BAI TAP
   Vong 16: C16=0000000 D16=0000000  K16=000000000000
 [DES] Sau IP        = 0080008000000000
 [DES] L0 = 00800080   R0 = 00000000
+--- Vong 1 ---
+  E(R0)        = 000000000000
+  K1          = 000000000000
+  E(R)^K       = 000000000000
+  Sau S-box    = EFA72C4D
+  P(S) = f     = D8D8DBBC
+  L1 = 00000000   R1 = D858DB3C
+--- Vong 2 ---
+  E(R1)        = 6F02F16F69F9
+  K2          = 000000000000
+  E(R)^K       = 6F02F16F69F9
+  Sau S-box    = 55499A83
+  P(S) = f     = B123C853
+  L2 = D858DB3C   R2 = B123C853
+--- Vong 3 ---
+  E(R2)        = DA2907E502A7
+  K3          = 000000000000
+  E(R)^K       = DA2907E502A7
+  Sau S-box    = 7E45A007
+  P(S) = f     = C10B9AB2
+  L3 = B123C853   R3 = 1953418E
+--- Vong 4 ---
+  E(R3)        = 0F2AA6A03C5C
+  K4          = 000000000000
+  E(R)^K       = 0F2AA6A03C5C
+  Sau S-box    = F8F0AF9C
+  P(S) = f     = 1FA9A3AF
+  L4 = 1953418E   R4 = AE8A6BFC
+--- Vong 5 ---
+  E(R4)        = 55D454357FF9
+  K5          = 000000000000
+  E(R)^K       = 55D454357FF9
+  Sau S-box    = CB28DEC3
+  P(S) = f     = 71BEC84D
+  L5 = AE8A6BFC   R5 = 68ED89C3
+--- Vong 6 ---
+  E(R5)        = B5175BC53E06
+  K6          = 000000000000
+  E(R)^K       = B5175BC53E06
+  Sau S-box    = 1CFA6104
+  P(S) = f     = 044D21F6
+  L6 = 68ED89C3   R6 = AAC74A0A
+--- Vong 7 ---
+  E(R6)        = 55560EA54055
+  K7          = 000000000000
+  E(R)^K       = 55560EA54055
+  Sau S-box    = C1BA13D6
+  P(S) = f     = 26F2E165
+  L7 = AAC74A0A   R7 = 4E1F68A6
+--- Vong 8 ---
+  E(R7)        = 25C0FEB5150C
+  K8          = 000000000000
+  E(R)^K       = 25C0FEB5150C
+  Sau S-box    = E574269B
+  P(S) = f     = 0EA3DA9D
+  L8 = 4E1F68A6   R8 = A4649097
+--- Vong 9 ---
+  E(R8)        = D083094A14AF
+  K9          = 000000000000
+  E(R)^K       = D083094A14AF
+  Sau S-box    = 96F654CD
+  P(S) = f     = 6CD5193F
+  L9 = A4649097   R9 = 22CA7199
+--- Vong 10 ---
+  E(R9)        = 9056543A3CF2
+  K10          = 000000000000
+  E(R)^K       = 9056543A3CF2
+  Sau S-box    = E4C86356
+  P(S) = f     = 02B7A3F0
+  L10 = 22CA7199   R10 = A6D33367
+--- Vong 11 ---
+  E(R10)        = D0D6A69A6B0F
+  K11          = 000000000000
+  E(R)^K       = D0D6A69A6B0F
+  Sau S-box    = 9840B574
+  P(S) = f     = 239924AA
+  L11 = A6D33367   R11 = 01535533
+--- Vong 12 ---
+  E(R11)        = 802AA6AAA9A6
+  K12          = 000000000000
+  E(R)^K       = 802AA6AAA9A6
+  Sau S-box    = 41F0D8D1
+  P(S) = f     = 3715C905
+  L12 = 01535533   R12 = 91C6FA62
+--- Vong 13 ---
+  E(R12)        = 4A3E0D7F4305
+  K13          = 000000000000
+  E(R)^K       = 4A3E0D7F4305
+  Sau S-box    = A850648D
+  P(S) = f     = 0C8D0AA9
+  L13 = 91C6FA62   R13 = 0DDE5F9A
+--- Vong 14 ---
+  E(R13)        = 05BEFC2FFCF4
+  K14          = 000000000000
+  E(R)^K       = 05BEFC2FFCF4
+  Sau S-box    = 09587D5A
+  P(S) = f     = 3E1F60C8
+  L14 = 0DDE5F9A   R14 = AFD99AAA
+--- Vong 15 ---
+  E(R14)        = 55FEF3CF5555
+  K15          = 000000000000
+  E(R)^K       = 55FEF3CF5555
+  Sau S-box    = C554F156
+  P(S) = f     = 2797F0B0
+  L15 = AFD99AAA   R15 = 2A49AF2A
+--- Vong 16 ---
+  E(R15)        = 154253D5E954
+  K16          = 000000000000
+  E(R)^K       = 154253D5E954
+  Sau S-box    = 72370BD3
+  P(S) = f     = D672BA07
+  L16 = 2A49AF2A   R16 = 79AB20AD
+[DES] R16||L16 (truoc FP) = 79AB20AD2A49AF2A
+[DES] Sau FP (dau ra)     = 799A09FB40DF6019
+ 
+>>> DES CIPHERTEXT = 0x799A09FB40DF6019
