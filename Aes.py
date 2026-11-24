@@ -73,3 +73,30 @@ def mix_columns(s, inv=False):
                 v ^= gmul(m[r][k], col[k])
             out.append(v)
     return out
+
+def add_round_key(s, rk):
+    return [a ^ b for a, b in zip(s, rk)]
+
+
+def aes_encrypt(pt16, key16, log=None):
+    log = log or (lambda s: )
+    log("[AES] Sinh khoa vong:")
+    rks = aes_key_expansion(key16, log)
+    s = list(pt16)
+    log(f"[AES] Input              = {hx(s)}")
+    s = add_round_key(s, rks[0])
+    log(f"[AES] Round 0 AddRoundKey= {hx(s)}")
+    for r in range(1, 11):
+        log(f"--- Round {r} ---")
+        log(f"  start of round   = {hx(s)}")
+        s = sub_bytes(s)
+        log(f"  after SubBytes   = {hx(s)}")
+        s = shift_rows(s)
+        log(f"  after ShiftRows  = {hx(s)}")
+        if r != 10:
+            s = mix_columns()
+            log(f"  after MixColumns = {hx(s)}")
+        log(f"  round key        = {hx(rks[r])}")
+        s  add_round_key(s, rks[r])
+        log(f"  after AddRoundKey= {hx(s)}")
+    return bytes(s)
