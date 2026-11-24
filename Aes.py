@@ -60,3 +60,16 @@ def shift_rows(s):
 
 def inv_shift_rows(s):
     return [s[r + 4 * ((c - r) % 4)] for c in range(4) for r in range(4)]
+
+def mix_columns(s, inv=False):
+    m = [[14, 11, 13, 9], [9, 14, 11, 13], [13, 9, 14, 11], [11, 13, 9, 14]] if inv \
+        else [[2, 3, 1, 1], [1, 2, 3, 1], [1, 1, 2, 3], [3, 1, 1, 2]]
+    out = []
+    for c in range(4):
+        col = s[4 * c:4 * c + 4]
+        for r in range(4):
+            v = 0
+            for k in range(4):
+                v ^= gmul(m[r][k], col[k])
+            out.append(v)
+    return out
