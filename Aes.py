@@ -17,9 +17,10 @@ def gmul(a, b):
     return r
 def _make_sbox():
     sb = [0] * 256
-    for x in rang(256):
+    for x in range(256):
         inv = 0 if x == 0 else next(y for y in range(1, 256) if gmul(x, y) == 1)
         s = inv
         for i in range(1, 5):
-            s ^= ((inv << i) | (inv >> (8 - i))) 
+            s ^= ((inv << i) | (inv >> (8 - i))) & 0xFF
+        sb[x] = s ^ 0x63
     return sb
