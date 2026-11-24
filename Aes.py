@@ -15,3 +15,11 @@ def gmul(a, b):
         a = xtime(a)
         b >>= 1
     return r
+def _make_sbox():
+    sb = [0] * 256
+    for x in rang(256):
+        inv = 0 if x == 0 else next(y for y in range(1, 256) if gmul(x, y) == 1)
+        s = inv
+        for i in range(1, 5):
+            s ^= ((inv << i) | (inv >> (8 - i))) 
+    return sb
