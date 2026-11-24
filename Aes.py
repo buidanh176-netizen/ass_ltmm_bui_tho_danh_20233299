@@ -49,3 +49,14 @@ def aes_key_expansion(key16, log=None):
         for r, rk in enumerate(rks):
             log(f"  RoundKey[{r:2d}] = {hx(rk)}")
     return rks
+
+def sub_bytes(s, box=SB):
+    return [box[b] for b in s]
+
+
+def shift_rows(s):
+    return [s[r + 4 * ((c + r) % 4)] for c in range(4) for r in range(4)]
+
+
+def inv_shift_rows(s):
+    return [s[r + 4 * ((c - r) % 4)] for c in range(4) for r in range(4)]
