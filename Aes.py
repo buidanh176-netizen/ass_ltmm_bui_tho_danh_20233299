@@ -100,3 +100,22 @@ def aes_encrypt(pt16, key16, log=None):
         s = add_round_key(s, rks[r])
         log(f"  after AddRoundKey= {hx(s)}")
     return bytes(s)
+
+def aes_decrypt(ct16, key16, log=None):
+    log = log or (lambda s: None)
+    rks = aes_key_expansion(key16)
+    s = add_round_key(list(ct16), rks[10])
+    log(f"[AES-DEC] Round 10 AddRoundKey = {hx(s)}")
+    for r in range(9, -1, -1):
+        s = inv_shift_rows(s)
+        s = sub_bytes(s, INV_SB)
+        s = add_round_key(s, rks[r])
+        if r != 0:
+            s = mix_columns(s, inv=True)
+        log(f"[AES-DEC] Sau round nghich {10 - r}   = {hx(s)}")
+    return bytes(s)
+
+
+
+P_AES = bytes.fromhex("00000000000000000000000000000011")
+K_AES = bytes(16)
