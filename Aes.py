@@ -79,7 +79,7 @@ def add_round_key(s, rk):
 
 
 def aes_encrypt(pt16, key16, log=None):
-    log = log or (lambda s: )
+    log = log or (lambda s: None )
     log("[AES] Sinh khoa vong:")
     rks = aes_key_expansion(key16, log)
     s = list(pt16)
@@ -97,6 +97,6 @@ def aes_encrypt(pt16, key16, log=None):
             s = mix_columns()
             log(f"  after MixColumns = {hx(s)}")
         log(f"  round key        = {hx(rks[r])}")
-        s  add_round_key(s, rks[r])
+        s = add_round_key(s, rks[r])
         log(f"  after AddRoundKey= {hx(s)}")
     return bytes(s)
