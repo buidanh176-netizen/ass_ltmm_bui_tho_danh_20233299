@@ -119,3 +119,20 @@ def aes_decrypt(ct16, key16, log=None):
 
 P_AES = bytes.fromhex("00000000000000000000000000000011")
 K_AES = bytes(16)
+
+def run_test_vector(out=print):
+    out("=" * 70)
+    out("AES-128 - TEST VECTOR CUA BAI TAP")
+    out("   P = 0x00000000000000000000000000000011")
+    out("   K = 0x00000000000000000000000000000000")
+    out("=" * 70)
+    ct = aes_encrypt(P_AES, K_AES, log=out)
+    out(f"\n>>> AES-128 CIPHERTEXT = 0x{hx(ct)}")
+    out("\n--- Giai ma kiem tra ---")
+    pt = aes_decrypt(ct, K_AES, log=out)
+    out(f">>> AES-128 PLAINTEXT sau giai ma = 0x{hx(pt)} "
+        f"{'(khop)' if pt == P_AES else '(SAI)'}")
+
+
+if __name__ == "__main__":
+    run_test_vector()
