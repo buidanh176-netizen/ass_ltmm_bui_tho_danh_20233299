@@ -24,3 +24,9 @@ def _make_sbox():
             s ^= ((inv << i) | (inv >> (8 - i))) & 0xFF
         sb[x] = s ^ 0x63
     return sb
+
+SB = _make_sbox()
+INV_SB = [0] * 256
+for _i, _v in enumerate(SB):
+    INV_SB[_v] = _i
+RCON = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1B, 0x36]
