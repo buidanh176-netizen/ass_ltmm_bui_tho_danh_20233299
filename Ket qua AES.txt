@@ -1,0 +1,89 @@
+AES-128 - TEST VECTOR CUA BAI TAP
+   P = 0x00000000000000000000000000000011
+   K = 0x00000000000000000000000000000000
+======================================================================
+[AES] Sinh khoa vong:
+  RoundKey[ 0] = 00000000000000000000000000000000
+  RoundKey[ 1] = 62636363626363636263636362636363
+  RoundKey[ 2] = 9b9898c9f9fbfbaa9b9898c9f9fbfbaa
+  RoundKey[ 3] = 90973450696ccffaf2f457330b0fac99
+  RoundKey[ 4] = ee06da7b876a1581759e42b27e91ee2b
+  RoundKey[ 5] = 7f2e2b88f8443e098dda7cbbf34b9290
+  RoundKey[ 6] = ec614b851425758c99ff09376ab49ba7
+  RoundKey[ 7] = 217517873550620bacaf6b3cc61bf09b
+  RoundKey[ 8] = 0ef903333ba9613897060a04511dfa9f
+  RoundKey[ 9] = b1d4d8e28a7db9da1d7bb3de4c664941
+  RoundKey[10] = b4ef5bcb3e92e21123e951cf6f8f188e
+[AES] Input              = 00000000000000000000000000000011
+[AES] Round 0 AddRoundKey= 00000000000000000000000000000011
+--- Round 1 ---
+  start of round   = 00000000000000000000000000000011
+  after SubBytes   = 63636363636363636363636363636382
+  after ShiftRows  = 63636382636363636363636363636363
+  after MixColumns = 82825bba636363636363636363636363
+  round key        = 62636363626363636263636362636363
+  after AddRoundKey= e0e138d9010000000100000001000000
+--- Round 2 ---
+  start of round   = e0e138d9010000000100000001000000
+  after SubBytes   = e1f807357c6363637c6363637c636363
+  after ShiftRows  = e16363637c6363357c6307637cf86363
+  after MixColumns = 7ce1e1fe0b2a86ee39d0b426eb51e7d9
+  round key        = 9b9898c9f9fbfbaa9b9898c9f9fbfbaa
+  after AddRoundKey= e7797937f2d17d44a2482cef12aa1c73
+--- Round 3 ---
+  start of round   = e7797937f2d17d44a2482cef12aa1c73
+  after SubBytes   = 94b6b69a893eff1b3a5271dfc9ac9c8f
+  after ShiftRows  = 943e718f89529c9a3aacb61bc9b6ffdf
+  after MixColumns = 8ff4c2edf9084d6136a3cc62687be0ac
+  round key        = 90973450696ccffaf2f457330b0fac99
+  after AddRoundKey= 1f63f6bd9064829bc4579b5163744c35
+--- Round 4 ---
+  start of round   = 1f63f6bd9064829bc4579b5163744c35
+  after SubBytes   = c0fb427a604313141c5b14d1fb922996
+  after ShiftRows  = c0431496605b297a1c924214fbfb13d1
+  after MixColumns = dcec0a3b7ed7e726c3f136dc39f24e47
+  round key        = ee06da7b876a1581759e42b27e91ee2b
+  after AddRoundKey= 32ead040f9bdf2a7b66f746e4763a06c
+--- Round 5 ---
+  start of round   = 32ead040f9bdf2a7b66f746e4763a06c
+  after SubBytes   = 23877009997a895c4ea8929fa0fbe050
+  after ShiftRows  = 237a925099a8e0094efb705ca087899f
+  after MixColumns = 0a2a962d23e0f1eaa66fb1e1dfaa94d0
+  round key        = 7f2e2b88f8443e098dda7cbbf34b9290
+  after AddRoundKey= 7504bda5dba4cfe32bb5cd5a2ce10640
+--- Round 6 ---
+  start of round   = 7504bda5dba4cfe32bb5cd5a2ce10640
+  after SubBytes   = 9df27a06b9498a11f1d5bdbe71f86f09
+  after ShiftRows  = 9d49bd09b9d56f06f1f87a1171f28abe
+  after MixColumns = 4edaae5a64bfb8668185cea8dbb5558c
+  round key        = ec614b851425758c99ff09376ab49ba7
+  after AddRoundKey= a2bbe5df709acdea187ac79fb101ce2b
+--- Round 7 ---
+  start of round   = a2bbe5df709acdea187ac79fb101ce2b
+  after SubBytes   = 3aead99e51b8bd87addac6dbc87c8bf1
+  after ShiftRows  = 3ab8c6f151da8b9ead7cd987c8eabddb
+  after MixColumns = 90f11dc9c2e63f859ba2ea5cc80035b9
+  round key        = 217517873550620bacaf6b3cc61bf09b
+  after AddRoundKey= b1840a4ef7b65d8e370d81600e1bc522
+--- Round 8 ---
+  start of round   = b1840a4ef7b65d8e370d81600e1bc522
+  after SubBytes   = c85f672f684e4c199ad70cd0abafa693
+  after ShiftRows  = c84e0c9368d7a62f9aaf6719ab5f4cd0
+  after MixColumns = c6d3303c3b039997bb6fd04f3011074e
+  round key        = 0ef903333ba9613897060a04511dfa9f
+  after AddRoundKey= c82a330f00aaf8af2c69da4b610cfdd1
+--- Round 9 ---
+  start of round   = c82a330f00aaf8af2c69da4b610cfdd1
+  after SubBytes   = e8e5c37663ac417971f957b3effe543e
+  after ShiftRows  = e8ac573e63f9547671fec379efe541b3
+  after MixColumns = 4d6ca8a4f400a8e441b1995c034e46f3
+  round key        = b1d4d8e28a7db9da1d7bb3de4c664941
+  after AddRoundKey= fcb870467e7d113e5cca2a824f280fb2
+--- Round 10 ---
+  start of round   = fcb870467e7d113e5cca2a824f280fb2
+  after SubBytes   = b06c515af3ff82b24a74e51384347637
+  after ShiftRows  = b0ffe537f374765a4a3451b2846c8213
+  round key        = b4ef5bcb3e92e21123e951cf6f8f188e
+  after AddRoundKey= 0410befccde6944b69dd007debe39a9d
+ 
+>>> AES-128 CIPHERTEXT = 0x0410befccde6944b69dd007debe39a9d
