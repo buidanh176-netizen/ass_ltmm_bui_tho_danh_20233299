@@ -87,3 +87,16 @@ AES-128 - TEST VECTOR CUA BAI TAP
   after AddRoundKey= 0410befccde6944b69dd007debe39a9d
  
 >>> AES-128 CIPHERTEXT = 0x0410befccde6944b69dd007debe39a9d
+--- Giai ma kiem tra ---
+[AES-DEC] Round 10 AddRoundKey = b0ffe537f374765a4a3451b2846c8213
+[AES-DEC] Sau round nghich 1   = e8ac573e63f9547671fec379efe541b3
+[AES-DEC] Sau round nghich 2   = c84e0c9368d7a62f9aaf6719ab5f4cd0
+[AES-DEC] Sau round nghich 3   = 3ab8c6f151da8b9ead7cd987c8eabddb
+[AES-DEC] Sau round nghich 4   = 9d49bd09b9d56f06f1f87a1171f28abe
+[AES-DEC] Sau round nghich 5   = 237a925099a8e0094efb705ca087899f
+[AES-DEC] Sau round nghich 6   = c0431496605b297a1c924214fbfb13d1
+[AES-DEC] Sau round nghich 7   = 943e718f89529c9a3aacb61bc9b6ffdf
+[AES-DEC] Sau round nghich 8   = e16363637c6363357c6307637cf86363
+[AES-DEC] Sau round nghich 9   = 63636382636363636363636363636363
+[AES-DEC] Sau round nghich 10   = 00000000000000000000000000000011
+>>> AES-128 PLAINTEXT sau giai ma = 0x00000000000000000000000000000011 (khop)
